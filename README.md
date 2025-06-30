@@ -2,21 +2,6 @@
 
 This project provides a working solution to generate handwriting practice worksheets from WorksheetWorks.com using automated browser interaction.
 
-## ✅ Problem Solved
-
-The original issue was that simple `curl` commands don't work with WorksheetWorks.com because:
-- The website uses JavaScript/Angular for form handling
-- It requires proper browser interaction to generate PDFs
-- Simple HTTP requests return HTML instead of PDF files
-
-## 🎯 Working Solution
-
-We created an automated browser solution using **Selenium + Chrome** that:
-- ✅ Properly fills out the form fields
-- ✅ Handles JavaScript interactions
-- ✅ Downloads valid PDF files
-- ✅ Works with custom text input
-
 ## 📋 Files Overview
 
 | File | Description |
@@ -41,28 +26,6 @@ brew install chromedriver
 # https://chromedriver.chromium.org/
 ```
 
-### 2. Generate a Worksheet
-```bash
-# Basic usage (now defaults to dashed lines)
-./generate_worksheet.sh
-
-# Custom text with dashed lines
-./generate_worksheet.sh --text "Hello World 123"
-
-# Different line styles
-./generate_worksheet.sh --line-style solid --text "Solid lines"
-./generate_worksheet.sh --line-style dashed --text "Dashed lines" 
-./generate_worksheet.sh --line-style dotted --text "Dotted lines"
-./generate_worksheet.sh --line-style minimal --text "Minimal guides"
-./generate_worksheet.sh --line-style none --text "No guide lines"
-
-# Custom output file
-./generate_worksheet.sh --text "Practice ABC" --output my_worksheet.pdf
-
-# Watch the browser work (for debugging)
-./generate_worksheet.sh --visible
-```
-
 ## � Requirements
 
 - **Python 3.6+** with `selenium` and `requests` packages
@@ -70,32 +33,6 @@ brew install chromedriver
 - **ChromeDriver** installed and in PATH
 - Internet connection
 
-## ❓ Why Not curl?
-
-Simple `curl` commands don't work with WorksheetWorks.com because:
-- ✗ The website uses **JavaScript/Angular** for form handling
-- ✗ Requires **browser interaction** to generate PDFs
-- ✗ **Session management** and CSRF tokens needed
-- ✗ **Client-side processing** before server PDF generation
-
-This is why we use **Selenium** to automate a real browser instead of direct HTTP requests.
-
-## �📖 Usage Examples
-
-### Generate worksheets with different line styles:
-```bash
-./generate_worksheet.sh --text "The quick brown fox jumps over the lazy dog" --line-style dashed
-./generate_worksheet.sh --text "ABC abc 123 !@#" --line-style solid
-./generate_worksheet.sh --text "Mary had a little lamb" --line-style dotted
-./generate_worksheet.sh --text "Practice writing" --line-style minimal
-```
-
-### Generate multiple worksheets:
-```bash
-./generate_worksheet.sh --text "Week 1: Letters A-E" --output week1.pdf
-./generate_worksheet.sh --text "Week 2: Letters F-J" --output week2.pdf
-./generate_worksheet.sh --text "Week 3: Numbers 1-10" --output week3.pdf
-```
 
 ## � Story Generation for Kids
 
